@@ -73,7 +73,6 @@ class Sabdakosh():
 
                 otf.write(wholeFile)
 
-
     def doStuffs(self):
         self.asciiToUnicode()
         self.postProcess()

@@ -26,6 +26,8 @@ for body in root.findall('office:body',ns):
                 for text_box in frame.findall('draw:text-box',ns):
                     for p in text_box.findall('text:p',ns):
                         for span in p.findall('text:span',ns):
+                            for s in span.findall('text:s',ns):
+
                             atrb = span.attrib
                             nst = '{'+ns['text']+'}style-name'
                             style = atrb[nst]
