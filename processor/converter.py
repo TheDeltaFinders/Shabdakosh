@@ -2,7 +2,12 @@
 
 # vim: ai ts=4 sts=4 et sw=4 ft=python
 
+# author : प्रकाश   (Prakash)
+# date   : 2018/09/07
+
+
 import re
+
 from .mapping import Mapping as mpg
 from .prcmap import PrcMap as Prm
 
@@ -58,10 +63,10 @@ class Converter():
         return word,c_word
         
 
-
 if __name__ == '__main__':
     MP = Converter()
     # word = 
     word = 'zfsfxf/L #fF; kqlsf kl/s\/df'
     c_word = MP.convert_word(word)
     print(' {}  == > {} '.format(word,c_word))
+
