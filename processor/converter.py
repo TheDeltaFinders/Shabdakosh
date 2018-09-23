@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-
+# -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 ft=python
 
-# author : प्रकाश   (Prakash)
+# author : Prakash [प्रकाश]
 # date   : 2018/09/07
 
 

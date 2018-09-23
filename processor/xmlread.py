@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-
+# -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 ft=python
 
-# author : प्रकाश   (Prakash)
+# author : Prakash [प्रकाश]
 # date   : 2018/09/08
 
 import os
@@ -66,9 +66,8 @@ class ReadXML():
                                     atrb = span.attrib
                                     nst = '{'+self.ns['text']+'}style-name'
                                     style = atrb[nst]
-                                    #print(atrb)
-                                    tp = (style,span.text)
-                                    #print(style, ' ',span.text,end='\n')
+                                    txt = "".join(span.itertext())
+                                    tp = (style,txt)
                                     lw.append(tp)
 
         return lw
@@ -79,8 +78,6 @@ class ReadXML():
     def show_info(self):
         lw = self.read_xml(self.xml_file)
         for ft,word in lw:
-            #ft = lw[i][0]
-            #word = lw[i][1]
             cvcl = cvt.Converter()
             c_word = word
             if ft != 'T8':
@@ -91,10 +88,7 @@ class ReadXML():
     def write_file(self,output_file):
         lw = self.read_xml(self.xml_file)
         with open(output_file,'w') as ofl:
-            for i in range(len(lw)):
-                # Because the lw contains tuple of font type and text
-                ft = lw[i][0]
-                word = lw[i][1]
+            for ft,word in lw:
                 cvcl = cvt.Converter()
                 c_word = word
                 if ft != 'T8':
@@ -103,14 +97,10 @@ class ReadXML():
                 # T5 147 is chandrabindu
                 # T5 151 is -
 
-                if ft == 'T5':
-                    if len(word) == 1:
-                        if ord(word) == 151:
-                            pass
-                            #print('\n')
-
                 print(f'{c_word}',end='')
-                ofl.write('{}'.format(c_word))
+                #print(f'{c_word} has {c_word.count(" ")} spaces ')
+                #c_word = c_word.replace(' ','<spc>')
+                ofl.write(f'{c_word}')
 
 
 if __name__ == '__main__':
