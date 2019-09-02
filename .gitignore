@@ -106,3 +106,5 @@ ENV/
 
 #vim files
 *.swp
+.vscode
+res/Large

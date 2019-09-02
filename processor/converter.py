@@ -34,7 +34,7 @@ class Converter():
     def convert_preeti(self,paragraph):
         post_rex = self.preeti_post_rex
         paragraph = self.process_before_char_sub(paragraph) 
-        converted_par = ' '
+        converted_par = '' # Huge bug found  Fri Apr  5 00:07:45 EDT 2019, whas ' ' instead of ''
         # now do the char sub
         if paragraph != None: 
             for char in paragraph:

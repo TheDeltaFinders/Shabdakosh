@@ -14,36 +14,40 @@ from processor import xmlread as rxml
 class Test():
     def __init__(self):
         base_path = os.path.dirname(os.path.realpath(__file__))
-        self.xml_file = os.path.join(base_path,"./res/SmallOne.xml")
+        self.dotslash = lambda x: os.path.join(base_path,x)
+        #self.xml_file = os.path.join(base_path,"./res/SmallOne.xml")
+        self.xml_file = os.path.join(base_path,"./res/Large/splitted_439-439.xml")
         self.output_file = os.path.join(base_path,'./res/Out_SmallOne.txt')
-        self.xml_file = os.path.join(base_path,"./res/OneChhaPage.xml")
+        #self.xml_file = os.path.join(base_path,"./res/OneChhaPage.xml")
         self.output_file = os.path.join(base_path,'./res/Out_OneChhaPage.txt')
         self.RXML = rxml.ReadXML(self.xml_file)
 
-    def test_stuffs(self):
-        self.test_converter()
-        #self.test_read_xml()
-        #self.test_show_font()
-        self.test_show_text()
+    def stuffs(self):
+        self.converter()
+        #self.read_xml()
+        #self.show_font()
+        self.show_text()
+        self.RXML.save_to_txt(self.dotslash('res/OutputApril.txt'))
 
-    def test_converter(self):
+    def converter(self):
         cvcl = cvt.Converter()
-        word = ''' cIf/Ù n]Vo ¿kdf  cGtflIf/L  Uo sfdbf®x¿nfO{ '''
-        word = ''' cIf/Ù '''
+        word = '''a if a aif cIf/Ù n]Vo ¿kdf  cGtflIf/L  Uo sfdbf®x¿nfO{ '''
+        #word = ''' cIf/Ù '''
+        word='if'
         c_word = cvcl.convert_word(word)
-        print(f'{word} == > {c_word}')
+        print(f'{word}::{c_word}')
 
-    def test_read_xml(self):
+    def read_xml(self):
         self.RXML.show_info()
     
-    def test_show_text(self):
+    def show_text(self):
         self.RXML.write_file(self.output_file)
 
-    def test_show_font(self):
+    def show_font(self):
         self.RXML.show_font_stat()
 
 
 if __name__ == '__main__':
     MP = Test()
-    MP.test_stuffs()
+    MP.stuffs()
 

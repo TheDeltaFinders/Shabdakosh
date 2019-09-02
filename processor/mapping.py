@@ -38,6 +38,10 @@ class Mapping():
         return rexary
     
     def getRexArray():
+        # After character by character subtution is made
+        # we still need to correct the misaligned characters
+        # in the word. These regular expression mapping, do the same.
+        # for example in preeti like font l character is 
         #
         rexary =[
             [r"्ा", r""], 
