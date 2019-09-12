@@ -1,6 +1,4 @@
-# This project specific files
-res/*.txt
-
+res/Large
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -9,6 +7,10 @@ __pycache__/
 
 # C extensions
 *.so
+
+# documentaion
+_build
+_templates
 
 # Distribution / packaging
 .Python
@@ -106,5 +108,3 @@ ENV/
 
 #vim files
 *.swp
-.vscode
-res/Large
