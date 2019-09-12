@@ -1,3 +1,10 @@
+#Sphinx stuff
+_build
+index.rst
+conf.py
+_static
+_templates
+
 res/Large
 
 # Byte-compiled / optimized / DLL files
