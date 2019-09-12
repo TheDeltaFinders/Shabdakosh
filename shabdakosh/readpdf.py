@@ -100,16 +100,7 @@ class ReadPDF():
             word += char
 
 if __name__ == '__main__':
-    PR = ReadPDF('./res/Large/split/splitted_438-438.pdf')
-    for word,font in PR.get_word_font(True):
-        print(f' {font } :: {word} ')
-        
-    for font in PR.font_set:
-        print(font)
-
-
-# In[ ]:
-
+    pass
 
 
 
