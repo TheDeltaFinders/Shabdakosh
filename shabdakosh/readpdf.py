@@ -16,9 +16,36 @@ from sampadak import Converter
 
 
 class ReadPDF():
+    """
+    Read the PDF file and extract the text and font information
+
+    """
     def  __init__(self,filename=None):
+        """
+        Initialize the pdf reader class
+
+        :type    filename: str
+        :param   filename: the name of pdf file to read
+
+        """
+
         self.filename = filename
         self.font_set = set()
+
+
+    def get_text(self,nepali=False):
+        """
+        Extracts all text from the page and returns it.
+
+        :type    nepali: bool
+        :param   nepali: whether we want the text converted to nepali
+
+        """
+
+        text = ''
+        for word,font in self.get_word_font(nepali):
+            text += ' '+word
+        return text
 
 
 
@@ -64,7 +91,7 @@ class ReadPDF():
                     except:
                         pass
 
-    def  convert_to_nepali(self,word):
+    def  convert_to_nepali(self,word,font):
         """
         Convert the word into Nepali unicode
         Depends on converter package of sampadak library
@@ -72,9 +99,15 @@ class ReadPDF():
         :type   word: str
         :param  word: preeti like font character sequence of word
 
+        :type  font: str
+        :param font: the font name of the characters in word
+
         """
         CVT = Converter()
-        nep_word = CVT.convert_preeti(word)
+        nep_word = word
+        if 'roman' not in font and 'mbol' not in font:
+            nep_word = CVT.convert_preeti(word)
+
         return nep_word
 
     def  get_word_font(self,nepali=False):
@@ -93,7 +126,7 @@ class ReadPDF():
         for char,font in self.get_font_char(filename):
             if font != cur_font or char == ' ':
                 self.font_set.add(font)
-                word = self.convert_to_nepali(word) if nepali else word
+                word = self.convert_to_nepali(word,font) if nepali else word
                 yield  word,cur_font
                 cur_font = font
                 word = ''
