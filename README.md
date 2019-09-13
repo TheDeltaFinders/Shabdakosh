@@ -39,7 +39,7 @@
 
 
 ```
-~$ sampadak 
+~$ shabdakosh 
 
 ```
 
