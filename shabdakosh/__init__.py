@@ -42,9 +42,9 @@ def show_info(pdf_file):
 
 @click.command()
 @click.option('-f','--file','pdf_file',type=str,help='pdf file to read')
-@click.option('-i','--info','show_info',default=False,type=bool,help='show file detail')
-def  main(pdf_file,show_info):
-    if show_info:
+@click.option('-i','--info','info',default=False,is_flag=True,help='show file detail')
+def  main(pdf_file,info):
+    if info:
         show_info(pdf_file)
     else:
         show_text(pdf_file)
