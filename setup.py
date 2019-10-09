@@ -12,18 +12,27 @@ with open("README.md",'r') as fh:
 
 setuptools.setup(
     name="shabdakosh",
-    version="0.0.1",
+    version="0.0.2",
     author="Prakash Gautam",
     author_email="info@pgautam.com.np",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
+
+    data_files = [
+        ('res',['res/splitted_438-438.pdf'])
+    ],
     url='https://github.com/thedeltafinders/shabdakosh',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License ::OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    scripts=['bin/shabdakosh']
+    entry_points={
+        'console_scripts':[
+            'shabdakosh=shabdakosh:main',
+        ],
+    },
+
 )
 
