@@ -7,6 +7,17 @@
 
 from .readpdf import ReadPDF
 
+class  CharFont():
+    def __init__(self,char=None,font=None):
+        self.character_ = char
+        self.font_ = font
+
+    @property
+    def character(self)
+        return self.character_
+    
+    
+
 
 class Interpret():
     """

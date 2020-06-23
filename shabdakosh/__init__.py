@@ -8,29 +8,28 @@
 import click
 import os
 
-from shabdakosh.readpdf import ReadPDF
+from .pdftotext.readpdf import ReadPDF
+from .database import db
+from .database import settings
+
 
 TEMPLATE_PDF = os.path.join(os.path.dirname(__file__),'../res/splitted_438-438.pdf')
 
 def show_text(pdf_file):
-    """
-    Show all the parsed text from the pdf
+    """Show all the parsed text from the pdf
 
     :type    pdf_file: str
     :param   pdf_file: the name of pdf file to show text of
-
     """
     pdf_file = pdf_file or TEMPLATE_PDF
     PR = ReadPDF(pdf_file)
     print(PR.get_text(nepali=True))
 
 def show_info(pdf_file):
-    """
-    Show the information of the pdf file with text and font
+    """Show the information of the pdf file with text and font
 
     :type    pdf_file: str
     :param   pdf_file: the name of pdf file to show info of
-
     """
     pdf_file = pdf_file or TEMPLATE_PDF
     PR = ReadPDF(pdf_file)
@@ -51,8 +50,7 @@ def  main(pdf_file,info):
 
 
 def  get_meaning(word):
-    """
-    Get the meaning of the word supplied
+    """Get the meaning of the word supplied
 
     :type    word: str
     :param   word: the meaning of word we supply

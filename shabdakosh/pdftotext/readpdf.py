@@ -16,9 +16,7 @@ from sampadak import Converter
 
 
 class ReadPDF():
-    """
-    Read the PDF file and extract the text and font information
-
+    """Read the PDF file and extract the text and font information 
     """
     def  __init__(self,filename=None):
         """
@@ -32,10 +30,8 @@ class ReadPDF():
         self.filename = filename
         self.font_set = set()
 
-
     def get_text(self,nepali=False):
-        """
-        Extracts all text from the page and returns it.
+        """ Extracts all text from the page and returns it.
 
         :type    nepali: bool
         :param   nepali: whether we want the text converted to nepali
@@ -46,8 +42,6 @@ class ReadPDF():
         for word,font in self.get_word_font(nepali):
             text += ' '+word
         return text
-
-
 
     def get_font_char(self,filename):
         """ 
@@ -92,8 +86,7 @@ class ReadPDF():
                         pass
 
     def  convert_to_nepali(self,word,font):
-        """
-        Convert the word into Nepali unicode
+        """Convert the word into Nepali unicode
         Depends on converter package of sampadak library
 
         :type   word: str
