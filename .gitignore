@@ -116,3 +116,4 @@ ENV/
 #vim files
 *.swp
 docs_sphinx
+test/nb
