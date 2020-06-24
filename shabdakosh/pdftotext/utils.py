@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# vim: ai ts=4 sts=4 et sw=4 ft=python
+
+# author : Prakash [प्रकाश]
+# date   : 2020-06-23 22:24
+
+from enum import Enum
+
+class DevChars(Enum):
+    A      = 'अ' 
+    AA     = 'आ' 
+    I      = 'इ' 
+    II     = 'ई' 
+    U      = 'उ' 
+    OO     = 'ऊ' 
+    KRI    = 'ऋ' 
+    EH     = 'ए' 
+    AI     = 'ऐ' 
+    O      = 'ओ' 
+    AU     = 'औ' 
+
+    KA     = 'क' 
+    KHA    = 'ख' 
+    GA     = 'ग' 
+    GHA    = 'घ' 
+    NGA    = 'ङ' 
+    CHA    = 'च' 
+    CHHA   = 'छ' 
+    JA     = 'ज' 
+    JHA    = 'झ' 
+    YNA    = 'ञ' 
+    TTA    = 'ट' 
+    TTHA   = 'ठ' 
+    DDA    = 'ड' 
+    DDHA   = 'ढ' 
+    ANA    = 'ण' 
+    TA     = 'त' 
+    THA    = 'थ' 
+    DA     = 'द' 
+    DHA    = 'ध' 
+    NA     = 'न' 
+    PA     = 'प' 
+    PHA    = 'फ' 
+    BA     = 'ब' 
+    BHA    = 'भ' 
+    MA     = 'म' 
+    YA     = 'य' 
+    RA     = 'र' 
+    LA     = 'ल' 
+    WA     = 'व' 
+    SHA    = 'श' 
+    SSA    = 'ष' 
+    SA     = 'स'
+    HA     = 'ह' 
+    KSA    = 'क्ष' 
+    TRA    = 'त्र' 
+    JYA    = 'ज्ञ' 
+
+class VowelSuffixes(Enum):
+    SFXAA     = 'ा' 
+    SFXI      = 'ि' 
+    SFXII     = 'ी' 
+    SFXU      = 'ु' 
+    SFXOO     = 'ू' 
+    SFXKRI    = 'ृ' 
+    SFXEH     = 'े' 
+    SFXAI     = 'ै' 
+    SFXO      = 'ो' 
+    SFXAU     = 'ौ'
+
+class Digits(Enum):
+    SUNYA = '०'
+    EK    = '१'
+    DUI   = '२'
+    TIN   = '३'
+    CHAR  = '४'
+    PANCH = '५'
+    CHHA  = '६'
+    SAAT  = '७'
+    ATH   = '८'
+    NAU   = '९'
+
+class Special(Enum):
+    HALANT          = '्'
+    PURNABIRAM      = '।'
+    CHANDRABINDU    = 'ँ'
+    SIRIBINDU       = 'ं'
+    AHA             = 'ः'
+    BISHMAYADI      = '!'
+    PRASHNABACHAK   = '?'
