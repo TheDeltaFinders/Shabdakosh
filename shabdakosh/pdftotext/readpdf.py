@@ -4,7 +4,7 @@
 
 # author : Prakash [प्रकाश]
 # date   : 2019-09-11 19:36
-    
+
 
 from pdfminer.pdfpage import PDFPage #
 from pdfminer.pdfinterp import PDFResourceManager #
@@ -12,15 +12,13 @@ from pdfminer.pdfinterp import PDFPageInterpreter #
 from pdfminer.layout import LAParams #
 from pdfminer.converter import  PDFPageAggregator #
 
-from sampadak import Converter 
+from sampadak import Converter
 
 
 class ReadPDF():
-    """Read the PDF file and extract the text and font information 
-    """
+    """Read the PDF file and extract the text and font information"""
     def  __init__(self,filename=None):
-        """
-        Initialize the pdf reader class
+        """Initialize the pdf reader class
 
         :type    filename: str
         :param   filename: the name of pdf file to read
@@ -31,11 +29,10 @@ class ReadPDF():
         self.font_set = set()
 
     def get_text(self,nepali=False):
-        """ Extracts all text from the page and returns it.
+        """Extracts all text from the page and returns it.
 
         :type    nepali: bool
         :param   nepali: whether we want the text converted to nepali
-
         """
 
         text = ''
@@ -43,22 +40,21 @@ class ReadPDF():
             text += ' '+word
         return text
 
-    def get_font_char(self,filename):
-        """ 
-        Reads the pdf with filename and 
-        reads the contents characterwise. This function was 
-        copied straight from the documentation of pdfminer 
-        library. 
-        
+    def get_font_char(self,filename=None):
+        """Reads the pdf with filename and
+        reads the contents characterwise. This function was
+        copied straight from the documentation of pdfminer
+        library.
+
         :type    filename: str
         :param   filename: the path of file
-
-        """ 
+        """
 
         #For some reason it reads characterwise, but
-        #we are fine with it 
+        #we are fine with it
+        filename = filename or self.filename
 
-        document = open(self.filename, 'rb')
+        document = open(filename, 'rb')
         rsrcmgr = PDFResourceManager()
         # Set parameters for analysis.
         laparams = LAParams()
@@ -72,17 +68,19 @@ class ReadPDF():
             #print(type(device))
             # receive the LTPage object for the page.
             layout = device.get_result()
+            print(f'Layout object is ',layout)
             for element in layout:
                 #print('I am here')
-                print(type(element))
+                #print(f'Element object type is ',type(element))
                 for obj in element:
-                    #print('There are elements more ',type(obj))
+                    #print('It has multiple objs and they have types ',type(obj))
                     try:
                         #print(obj.get_text(),end='')
                         #print(type(obj))
                         #print(obj.fontname)
                         yield (obj.get_text(),obj.fontname)
-                    except:
+                    except Exception as e:
+                        print(f'Exception ',e)
                         pass
 
     def  convert_to_nepali(self,word,font):
@@ -94,7 +92,6 @@ class ReadPDF():
 
         :type  font: str
         :param font: the font name of the characters in word
-
         """
         CVT = Converter()
         nep_word = word
@@ -104,14 +101,12 @@ class ReadPDF():
         return nep_word
 
     def  get_word_font(self,nepali=False):
-        """
-        From the file read the words and corresponding fonts. 
+        """From the file read the words and corresponding fonts.
         The change in font or sppearence of space character
         marks the word boundary.
 
         :type     nepali: bool
         :param    nepali: whether we want the words actually converted to Nepali
-
         """
         filename = self.filename
         cur_font = None
@@ -127,6 +122,5 @@ class ReadPDF():
 
 if __name__ == '__main__':
     pass
-
 
 
