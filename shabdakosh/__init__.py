@@ -9,8 +9,13 @@ import click
 import os
 
 from .pdftotext.readpdf import ReadPDF
+from .pdftotext import run_machine
+from .pdftotext.statemachine  import State
+from .pdftotext.statemachine  import Font
 from .database import db
 from .database import settings
+
+print(f'Runnign machine')
 
 
 TEMPLATE_PDF = os.path.join(os.path.dirname(__file__),'../res/splitted_438-438.pdf')
